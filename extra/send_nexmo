@@ -1,0 +1,16 @@
+#!/usr/local/bin/bash
+# 20160213 v1.0 ptudor
+#
+# $@ send_to PROBLEM apc-sua1500 AP9619 apc-sua1500 Humidity Emergency:30 % (24 °C, 75 °F)
+# $1 send_to
+# $2 PROBLEM apc-sua1500
+# $3 AP9619 apc-sua1500 Humidity Emergency:30 % (24 °C, 75 °F)
+
+zb_from="12135550001"
+zb_to="$1"
+zb_text="$2 $3"
+
+nexmo_key="2b3a053c"
+nexmo_secret="3fdb4c77"
+
+/usr/local/bin/curl -s -G -d "api_key=$nexmo_key" -d "api_secret=$nexmo_secret" -d "from=$zb_from" -d "to=$zb_to" --data-urlencode "text=$zb_text" "https://rest.nexmo.com/sms/json"
