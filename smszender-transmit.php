@@ -186,7 +186,7 @@ function get_stats() {
 	); 
 }
 
-printf("smszender-transmit connected. https://github.com/ptudor/zabbix-smszender  (^C to exit)%s", PHP_EOL);
+printf("smszender-transmit connected. https://github.com/ptudor/smszender-zabbix  (^C to exit)%s", PHP_EOL);
 while($running){
 	sleep(10);
 
