@@ -15,7 +15,7 @@ if (file_exists("config-smszender.php")) {
 function sha256($string) {
         // a drop-in for "md5()" habits
         $algo = 'sha256';
-        return hash($algo, $string . HASH_SECRET);
+        return hash($algo, $string . UNIQUE_IDENTIFIER);
         }
 
 $r = new Redis();

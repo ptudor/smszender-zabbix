@@ -28,7 +28,7 @@ if (file_exists("smszender-carriers.php")) {
 function sha256($string) {
 	// a drop-in for "md5()" habits 
 	$algo = 'sha256';
-	return hash($algo, $string . HASH_SECRET);
+	return hash($algo, $string . UNIQUE_IDENTIFIER);
 	}
 
 // begin Redis

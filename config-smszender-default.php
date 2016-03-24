@@ -9,7 +9,7 @@ define('REDIS_HOST', '127.0.0.1');
 define('REDIS_PORT', '6379');
 define('REDIS_DB','7');
 // just some entropy in userinput_hash. Quickly expire everything by changing a character.
-define('HASH_SECRET','6b0c35a9-9a33-4df0-a5ef-5ad4172cce88');
+define('UNIQUE_IDENTIFIER','6b0c35a9-9a33-4df0-a5ef-5ad4172cce88');
 // roll a dice of this many sides every ten seconds; if it's 1, syslog stats.
 define('STATS_INTEGER','42');
 
