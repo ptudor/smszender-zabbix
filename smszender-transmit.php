@@ -102,6 +102,9 @@ function process_queue_message($message) {
                 ." balance:".$result[messages][$ii]['remaining-balance']
                 ." price:".$result[messages][$ii]['message-price']
                 ." network:".$result[messages][$ii]['network']);
+	/* 
+#warning fixme
+	*/
 	$cmd = "/usr/local/bin/zabbix_sender -c /usr/local/etc/zabbix24/zabbix_agentd.conf -k net.ptudor.sms.nexmo.balance -o " . $result[messages][$ii]['remaining-balance'];
 	$cmd = escapeshellarg($cmd);
 	$resultA= system($cmd, $retval);
