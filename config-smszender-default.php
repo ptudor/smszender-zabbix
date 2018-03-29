@@ -5,7 +5,7 @@
 // choice of: "localhost", "nexmo"
 define('CARRIER','localhost');
 // everything uses database 0, sandbox ourselves over in seven
-define('REDIS_HOST', '127.0.0.1');
+define('REDIS_HOST', 'localhost');
 define('REDIS_PORT', '6379');
 define('REDIS_DB','7');
 // just something mixed in to key names. Quickly expire everything by changing a character.

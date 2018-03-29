@@ -31,7 +31,7 @@ $r->incr(sha256("smszender_enqueue_boot"));
 $bootcount = $r->get(sha256("smszender_enqueue_boot"));
 
 // begin syslog block
-openlog('smszender-enqueue', LOG_NDELAY, LOG_USER);
+openlog('smszender-enqueue', LOG_CONS, LOG_USER);
 syslog(LOG_ERR, "started:$bootcount");
 
 $to      = $argv[1];

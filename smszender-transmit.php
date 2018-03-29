@@ -45,7 +45,7 @@ $r->incr(sha256("smszender_transmit_boot"));
 $bootcount = $r->get(sha256("smszender_transmit_boot"));
 
 // begin syslog block
-openlog('smszender-transmit', LOG_NDELAY, LOG_USER);
+openlog('smszender-transmit', LOG_CONS, LOG_USER);
 syslog(LOG_ERR, "started:$bootcount");
 // end syslog block
 
@@ -200,10 +200,14 @@ while($running){
 	//print_r($message_id);
 	}
     catch (Exception $e) {
-	usleep(1);
+	usleep(10);
 	continue;
 	}
 	
+        if ( ! isset($message_id[1])) {
+                $message_id[1] = null;
+        }
+
 	// Get the message itself...
 	$message = $r->hgetall("zbx_message:".$message_id[1]);
 	//print_r($message);
@@ -215,7 +219,7 @@ while($running){
 	process_queue_message($message);
 
 	// If you need, delete the key...
-	$r->del("zbx_message:$message_id[1]");
+	$r->del("zbx_message:".$message_id[1]);
 
 }
 
