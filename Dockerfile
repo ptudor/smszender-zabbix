@@ -1,5 +1,7 @@
 FROM registry.fedoraproject.org/fedora:27
 
+EXPOSE 6379
+
 RUN echo "deltarpm=0" >> /etc/dnf/dnf.conf \
   && dnf -y --setopt=tsflags=nodocs update \
   && dnf -y --setopt=tsflags=nodocs install redis wget curl nc \
